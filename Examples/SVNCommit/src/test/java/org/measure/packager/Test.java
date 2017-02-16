@@ -10,14 +10,11 @@ public class Test {
 
 	public static void main(String[] args) {
 		SVNCommitImpl measure = new SVNCommitImpl();
-		HashMap<String,String> properties = new HashMap<>();
-		properties.put("URI", "https://rd.constellation.modeliosoft.com/svn/e0a5faac-e895-4dab-a047-de2b7a1f1110/trunk");
-		properties.put("PASSWORD", "aab");
-		properties.put("LOGIN", "aab");
-		properties.put("LastUpdate", String.valueOf(new Date().getTime()));
-		
-		measure.setProperties(properties);
-		
+		measure.getProperties().put("URI", "https://rd.constellation.modeliosoft.com/svn/e0a5faac-e895-4dab-a047-de2b7a1f1110/trunk");
+		measure.getProperties().put("PASSWORD", "aab");
+		measure.getProperties().put("LOGIN", "aab");
+		measure.getProperties().put("LastUpdate", String.valueOf(new Date().getTime()));
+			
 
 		try {
 			for(IMeasurement result : measure.getMeasurement()){

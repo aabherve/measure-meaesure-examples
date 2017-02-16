@@ -8,6 +8,7 @@ import org.measure.smm.measure.api.IMeasurement;
 import org.measure.smm.measure.defaultimpl.measurements.IntegerMeasurement;
 import org.measure.smm.measure.defaultimpl.measures.DirectMeasure;
 
+
 public class RandomGenerator extends DirectMeasure {
 
 	@Override
@@ -34,8 +35,8 @@ public class RandomGenerator extends DirectMeasure {
 		measurement.setValue(value);		
 		result.add(measurement);
 		
-		getUpdatedProperties().put("PreviousValue", String.valueOf(value));
-		
+		getProperties().put("PreviousValue", String.valueOf(value));
+				
 		return result;
 	}
 

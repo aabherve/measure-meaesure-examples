@@ -5,12 +5,12 @@ import java.io.IOException;
 
 import javax.xml.bind.JAXBException;
 
-import org.measure.smmmeasure.model.MeasureReference;
-import org.measure.smmmeasure.model.MeasureType;
-import org.measure.smmmeasure.model.MeasureUnite;
-import org.measure.smmmeasure.model.SMMMeasure;
-import org.measure.smmmeasure.model.ScopeProperty;
-import org.measure.smmmeasure.service.MeasurePackager;
+import org.measure.smm.measure.model.MeasureReference;
+import org.measure.smm.measure.model.MeasureType;
+import org.measure.smm.measure.model.MeasureUnite;
+import org.measure.smm.measure.model.SMMMeasure;
+import org.measure.smm.measure.model.ScopeProperty;
+import org.measure.smm.service.MeasurePackager;
 
 public class PackageMeasure {
 

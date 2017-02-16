@@ -12,15 +12,14 @@ public class Test {
 		RandomGenerator measure = new RandomGenerator();
 		HashMap<String, String> properties = new HashMap<>();
 		
-		properties.put("MinRange", "0");
-		properties.put("MaxRange", "100");
-		properties.put("Delta", "5");
-		properties.put("PreviousValue", "0");
-		measure.setProperties(properties);
+		measure.getProperties().put("MinRange", "0");
+		measure.getProperties().put("MaxRange", "100");
+		measure.getProperties().put("Delta", "5");
+		measure.getProperties().put("PreviousValue", "0");
+
 		try {
 			for(IMeasurement measurement : measure.getMeasurement()){
-				IntegerMeasurement intMeasurement = new IntegerMeasurement(measurement);
-				System.out.println(intMeasurement.getValue());
+				System.out.println(measurement.getLabel());
 			}
 		
 		} catch (Exception e) {

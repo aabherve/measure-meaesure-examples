@@ -69,7 +69,7 @@ public class SVNCommitImpl extends DirectMeasure {
 			});
 			log.run();
 
-			getUpdatedProperties().put("LastUpdate",new Long(new Date().getTime()).toString());
+			getProperties().put("LastUpdate",new Long(new Date().getTime()).toString());
 			return result;
 		} catch (SVNException e) {
 			throw e;

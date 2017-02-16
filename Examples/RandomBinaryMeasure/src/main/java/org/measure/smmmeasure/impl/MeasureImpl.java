@@ -1,40 +1,48 @@
 package org.measure.smmmeasure.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.measure.smmmeasure.implementation.api.IMeasurement;
-import org.measure.smmmeasure.implementation.defaultimpl.measurements.NumericMeasurement;
-import org.measure.smmmeasure.implementation.defaultimpl.measures.DerivedMeasure;
+import org.measure.smm.measure.api.IMeasurement;
+import org.measure.smm.measure.defaultimpl.measurements.IntegerMeasurement;
+import org.measure.smm.measure.defaultimpl.measures.DerivedMeasure;
+
 
 public class MeasureImpl extends DerivedMeasure {
 	
 	@Override
-	public IMeasurement calculateMeasurement() {
+	public List<IMeasurement> calculateMeasurement() {
 		Integer result = 0;
 		
 		List<IMeasurement> op1 = getMeasureInputByRole("RandomNumber A");
 		List<IMeasurement> op2 = getMeasureInputByRole("RandomNumber B");
 			
-		if(op1.size() == 1 && op2.size() == 1){
-			String oper = "+";
-	
+		if(op1.size() == 1 && op2.size() == 1){			
+			String oper = "+";	
 			oper = getProperty("Operation");	
+			
+			Integer val1 =   (Integer) op1.get(0).getValues().get("value");
+			Integer val2 =   (Integer) op2.get(0).getValues().get("value");
 		
 			if(oper.equals("+")){
-				result = (Integer)op1.get(0).getValue() + (Integer)op2.get(0).getValue();
+				result = val1 + val2;
 			}else if(oper.equals("-")){
-				result = (Integer)op1.get(0).getValue() - (Integer)op2.get(0).getValue();
+				result = val1 - val2;
 			}else if(oper.equals("*")){
-				result = (Integer)op1.get(0).getValue() * (Integer)op2.get(0).getValue();
+				result = val1 * val2;
 			}else if(oper.equals("/")){
-				result = (Integer)op1.get(0).getValue() / (Integer)op2.get(0).getValue();
+				result = val1 / val2;
 			}	
 		}
 		
-		NumericMeasurement measurement = new NumericMeasurement();
+		
+		IntegerMeasurement measurement = new IntegerMeasurement();
 		measurement.setValue(result);
 		
-		return measurement;
+		List<IMeasurement> measurements = new ArrayList<>();
+		measurements.add(measurement);
+		
+		return measurements;
 	}
 	
 }
